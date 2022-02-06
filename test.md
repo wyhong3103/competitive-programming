@@ -23,9 +23,10 @@ http://latexref.xyz/Font-styles.html
 
 http://applied-r.com/latex-font-styles/
 
-$func(var)$
 
-$\textit{func(var)}$
+\func(var)\
+
+\\textit{func(var)}\
 
 $\textrm{func(var)}$
 
