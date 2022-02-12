@@ -6,6 +6,7 @@ Afterthoughts:
 
 <br>
 Solution:
+
 - Checking on whether one of the black sheet covered the entire white sheet
 - If it wasn't , we do checking on the black sheets , check if it's a valid black sheet that can cover the entire white sheet (it must be covering the entire a portion of the white sheet (fully covered one of the axis), or else one of the black sheet must be covering the entire white sheet, which would be evaluated in the first conditional statement)
 - Special case in this situation, the black sheet could cover a portion of the white sheet, but it could be covering the middle portion of the white sheet (that means 2 side of the white sheet is the remaining area)

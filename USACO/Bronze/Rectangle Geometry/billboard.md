@@ -1,13 +1,13 @@
 Billboard problem from Rectangle Geomtry Bronze Topic
 http://www.usaco.org/index.php?page=viewproblem2&cpid=759
-
+<br>
 This technique was inspired by the cow problem, to find the intersection between two rectangle, you can use 
-
+<br>
 x1 , x2 = beginning and ending coordinate of x
 same geos to z
-
+<br>
 max(min(x1,z2) - max(z1,x2), 0)
-
+<br>
 If they overlap, it will return value greater than 0, it they don't , that means they are not intersecting , so it return 0
 
 
