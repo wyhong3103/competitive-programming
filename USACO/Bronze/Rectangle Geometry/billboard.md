@@ -12,7 +12,7 @@ If they overlap, it will return value greater than 0, it they don't , that means
 
 
 
-```
+```cpp
 #include <bits/stdc++.h>
 
 using ll = long long;

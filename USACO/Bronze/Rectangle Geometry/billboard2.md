@@ -10,7 +10,7 @@ Explanation: <br>
 - There's one special case in this question, which is when, it covered both side (whether bottom & up or right & left) , but it's in the middle, if that happens , we still have to cover the entire billboard
 
 
-```
+```cpp
 #include <bits/stdc++.h>
 
 using ll = long long;

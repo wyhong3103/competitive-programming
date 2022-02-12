@@ -1,7 +1,7 @@
 This question is essentially about finding the longest side 
 http://www.usaco.org/index.php?page=viewproblem2&cpid=663
 
-```
+```cpp
 #include <bits/stdc++.h>
 
 using ll = long long;

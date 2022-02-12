@@ -10,7 +10,7 @@ Explanation:
 <br>
 Editorial: https://codeforces.com/blog/entry/93389
 
-```
+```cpp
 #include <bits/stdc++.h>
 #include <limits>
  

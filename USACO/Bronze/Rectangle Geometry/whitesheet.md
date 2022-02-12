@@ -15,7 +15,7 @@ Solution:
 Link to the problem:
 https://codeforces.com/contest/1216/problem/C
 
-```
+```cpp
 #include <bits/stdc++.h>
 
 using ll = long long;
