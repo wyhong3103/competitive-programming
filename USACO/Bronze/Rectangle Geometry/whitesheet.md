@@ -89,7 +89,6 @@ void solve(){
 		}
 }
 int main(){
-	//setIO("billboard");
 	ios_base::sync_with_stdio(false);
 	cin.tie(nullptr);
 	solve();
