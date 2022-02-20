@@ -15,6 +15,7 @@ Explanation
 Link to problem : http://www.usaco.org/index.php?page=viewproblem2&cpid=761
 <br>
 Solution:
+<br>
 ```cpp
 #include <bits/stdc++.h>
 
