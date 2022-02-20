@@ -13,9 +13,7 @@ Explanation
 - alright, so first off, i've created an array of day, which store the changes of the cow's milk measurement, and i'll iterate through every single day and ,do necssary changes to the cow variable i have, and if there are differnt cows on the maximum board, i'll +1 to the ans
 <br>
 Link to problem : http://www.usaco.org/index.php?page=viewproblem2&cpid=761
-<br>
-Solution:
-<br>
+
 ```cpp
 #include <bits/stdc++.h>
 
