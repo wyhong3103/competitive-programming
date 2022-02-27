@@ -1,0 +1,1 @@
+I solved this, but my solution was gone. This question is just about getting the second smallest element, and at the same time, make sure that if number of element < 7, you have to add 1 extra element which is 0
