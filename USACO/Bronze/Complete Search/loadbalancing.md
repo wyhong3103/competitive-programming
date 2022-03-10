@@ -1,3 +1,9 @@
+This problem is genuinely tricky, I've try a similar method to the one in the solution. But it doesn't really work, which makes me think that I should check every single cell. I KNEW THAT THE COORDINATES DOESN'T MATTER, BECAUSE LOOK, IF ITS (1, 1) to (1e6, 1e6), it would be tedious to go from 1 to 1 million. My initial thinking was to, create a fence on each corner of a single cow, which is x+1 y+1, x+1 y-1, x-1 y+1, x-1 y-1, but that doesn't really works, but it's close enough to this method. this method is to create a fence at the x+1, and y+1 of every cow. Then iterate through each one of em, and do the checking.
+<br><br>
+I do not solve this problem.
+
+
+
 ```cpp
 #include <bits/stdc++.h>
 #include <limits>
@@ -18,11 +24,8 @@ struct Coord{
 	};
 
 
-
 vector<Coord> coords;
-pair<int, int> ans;
-
-//get max and get min 
+int ans;
 
 void balance(int x, int y){
 	vector<int> q(4);
@@ -42,9 +45,8 @@ void balance(int x, int y){
 	}
 	
 	int maxe = *max_element(all(q));
-	if (maxe < ans.first){
-		ans.first = maxe;
-		ans.second = *min_element(all(q));
+	if (maxe < ans){
+		ans = maxe;
 		}
 }
 
@@ -53,46 +55,41 @@ void solve(){
 	int n, b;
 	cin >> n >> b;
 
-	ans = {b, 0};
+	ans = b;
 	
 	Coord tl{b,b};
 	Coord br{0,0};
 
+	vector<int>fences_y;
+	vector<int>fences_x;
+
 	for (int i{}; i < n; i++){
 		int x,y;
 		cin >> x >> y;
-		tl.x = min(x, tl.x);
-		tl.y = min(y, tl.y);
-		br.x = max(x, br.x);
-		br.y = max(y, br.y);
 		coords.push_back({x,y});
+		fences_x.push_back(x+1);
+		fences_y.push_back(y+1);
+	}
 
+	for(auto& i: fences_x){
+		for(auto& j: fences_y){
+			balance(i, j);
+		}
 	}
 	
-	cout << tl.x << ' '  << tl.y << '\n';
-	cout << br.x << ' ' << br.y << '\n';
-
-	for (int i{(tl.x)+1}; i < br.x; i+=2){
-		for (int j{(tl.y)+1}; i < br.y; i+=2){
-			cout << i << ' ' << j << '\n';
-			balance(i,j);
-			}
-		}
-	
-	cout << ans.second;
+	cout << ans;
 
 	
 }
  
 int main(){
-	//setIO("lifeguards");
+	setIO("balancing");
 	ios_base::sync_with_stdio(false);
 	cin.tie(nullptr);
 	solve();
  
 	return 0;
 	}
-
 
 
 ```
