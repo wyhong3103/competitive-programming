@@ -99,6 +99,7 @@ int main(){
 ```
 <br>
 Solution
+
 ```cpp
 #include <iostream>
 #include <cstdio>
