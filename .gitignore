@@ -2,3 +2,5 @@ cp.cpp
 .cp.cpp.swp
 cp.exe
 /stress_test/
+path.py
+/__pycache__/
