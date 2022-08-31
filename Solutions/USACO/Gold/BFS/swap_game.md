@@ -153,4 +153,4 @@ int main(){
 
 ```
 
-Okay turned out, this is dumb. There is only 9! game states (which I have thought of it, but never really sure with the ideas), and for each game state we find the number of moves needed to reach the state.(which is a little vague for now) For a better understanding on this approach, [USACO Guide Editorial](https://usaco.guide/problems/cses-1670-swap-game/solution)
+Okay turned out, this is dumb. There is only 9! game states (which I have thought of it, but never really sure with the ideas), and for each game state we find the number of moves needed to reach the state.(which is a little vague for now) For a better understanding on this approach, [USACO Guide Editorial](https://usaco.guide/problems/cses-1670-swap-game/solution). It's really creative indeed, using a base 9 numbers to represent the state of the game.
