@@ -12,3 +12,18 @@ struct VectorHasher {
 
 // USAGE : unordered_map<vi, ll, VectorHasher> mp;
 ```
+
+A 2 dimensional one?
+```cpp
+struct VectorHasher {
+    int operator()(const vector<vector<int>> &V) const {
+        int hash = V.size();
+        for(auto &i : V) {
+            for(auto& j : i){
+                hash ^= j + 0x9e3779b9 + (hash << 6) + (hash >> 2);
+            }
+        }
+        return hash;
+    }
+};
+```
