@@ -1,0 +1,77 @@
+```cpp
+#include <bits/stdc++.h>
+#define all(x) begin(x),end(x)
+#define fir first
+#define sec second
+#define sz(x) x.size()
+#define pb push_back
+ 
+using namespace std;
+using ll = long long;
+using vi = vector<int>;
+using pi = pair<int,int>;
+using pdb = pair<double,double>;
+using pll = pair<ll,ll>;
+using vll = vector<ll>;
+const double EPS = (1e-6);
+ 
+void setio(string s){
+    freopen((s + ".in").c_str(),"r",stdin);
+    freopen((s + ".out").c_str(),"w",stdout);
+}
+ 
+const int MX = 1e5;
+vi adj[MX];
+bool vis[MX];
+bool processing[MX];
+ 
+void dfs(int node, deque<int>& topsort, bool& ok){
+    if (vis[node]){
+        ok &= !processing[node];
+        return;
+    }
+    vis[node] = 1;
+    processing[node] = 1;
+    for(auto& i : adj[node]){
+        dfs(i, topsort, ok);
+    }
+    topsort.push_front(node);
+    processing[node] = 0;
+}
+ 
+void solve(){
+    int n, m;
+    cin >> n >> m;
+    
+    for(int i{}; i < m; i++){
+        int f,t;
+        cin >> f >> t;
+        f--;t--;
+        adj[f].pb(t);
+    }
+    
+    bool ok = 1;
+    
+    deque<int> topsort;
+ 
+    for(int i{}; i < n; i++){
+        if (!vis[i]){
+            dfs(i, topsort, ok);
+        }
+    }
+    if (!ok) cout << "IMPOSSIBLE";
+    else{
+        for(auto& i : topsort) cout << i+1 << ' ';
+    }
+}   
+ 
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int t = 1;
+    while(t--){
+        solve();
+    }
+    return 0;
+}
+```
