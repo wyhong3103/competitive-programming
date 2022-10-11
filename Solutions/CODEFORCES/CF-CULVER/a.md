@@ -1,0 +1,1 @@
+If gcd(y,x) is not 1, then we need 2 steps. Else 1 step. 1 way of doing this 2 step thing is to simply go to (1,y-1) first then (x, y). This is because (0,0) to any (1,y) would not go through any lattice points. And (1,y-1) to (x,y) as well, y-1 to y, we only need to go straight up to (x,y).

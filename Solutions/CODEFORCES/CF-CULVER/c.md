@@ -1,0 +1,3 @@
+Odd N will always work. The idea is we could always size a non decreasing array on n-1 elements, starting from last element,  and with the first element, is often the thing that need a little extra work. But with odd N, it's either the first element being too high or too low. Too low is perfect, if it is too high, we can simply size up the n-1 elements as a pair, bc it is even numbered.
+
+If N is even, simply simulate the process, if at the end a[0] > a[1], then it failed.
