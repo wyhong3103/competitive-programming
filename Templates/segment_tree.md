@@ -5,7 +5,7 @@ Can be used on any associative operation on segment (GCD / Multiply/ Max / Min/ 
 To initialize - SegTree st; st.init(n);
 To build - st.build(a)
 To set - st.set(index, value)
-To get sum [l, r)- st.sum(from, to) 
+To get val [l, r)- st.getVal(l, r) 
 
 ```
 ```cpp
