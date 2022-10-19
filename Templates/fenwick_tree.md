@@ -1,4 +1,5 @@
 ```cpp
+//1-indexed
 const int MAX = 1e5 +5;
 int a[MAX];
 int fenwick_tree[MAX];
