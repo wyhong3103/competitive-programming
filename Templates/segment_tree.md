@@ -9,68 +9,71 @@ To get sum [l, r)- st.sum(from, to)
 
 ```
 ```cpp
+
+// Segment tree for min
 struct SegTree{
     ll size;
-    vll sums;
-
+    vll val;
+ 
     void init(int n){
         size = 1;
         while (size < n){
             size *= 2;
         } 
-        sums.assign(2*size, 0LL);
+        val.assign(2*size, 0LL);
     }
-
+ 
     void buildHelper(vi& a, int x, int lx, int rx){
         if (rx-lx == 1){
             if (lx < sz(a)){
-                sums[x] = a[lx];
+                val[x] = a[lx];
             }
             return;
         }
-
+ 
         int m = (lx+rx)/2;
         buildHelper(a, (x*2)+1, lx, m);
         buildHelper(a, (x*2)+2, m, rx);
-        sums[x] = sums[(x*2)+1] + sums[(x*2)+2];
+        val[x] = min(val[(x*2)+1], val[(x*2)+2]);
     }
-
+ 
     void build(vi& a){
         buildHelper(a, 0, 0, size);
     }
-
+ 
     void setHelper(int i, ll v, int x, int lx, int rx){
         if (rx-lx == 1){
-            sums[x] = v;
+            val[x] = v;
             return;
         }
-
+ 
         int m = (lx+rx)/2;
         if (i < m){
             setHelper(i, v, (x*2)+1, lx, m);
         }else{
             setHelper(i, v, (x*2)+2, m, rx);
         }
-        sums[x] = sums[(x*2)+1] + sums[(x*2)+2];
+        val[x] = min(val[(x*2)+1] ,val[(x*2)+2]);
     }
-
+ 
     void set(int i, int v){
         setHelper(i, v, 0, 0, size);
     }
-
-    ll sumHelper(int l, int r, int x, int lx, int rx){
+ 
+    ll valHelper(int l, int r, int x, int lx, int rx){
         if (min(r, rx) - max(l, lx) <= 0){
-            return 0; 
+            return LONG_LONG_MAX;
         }
         else if (lx >= l && rx <= r){
-            return sums[x];
+            return val[x];
         }
         int m = (lx + rx) / 2;
-        return sumHelper(l, r, (x*2)+1, lx, m)+ sumHelper(l, r, (x*2)+2, m, rx);
+        return min(valHelper(l, r, (x*2)+1, lx, m), valHelper(l, r, (x*2)+2, m, rx));
     }
-
-    ll sum(int l, int r){
-        return sumHelper(l, r, 0, 0, size);
+ 
+    ll getVal(int l, int r){
+        return valHelper(l, r, 0, 0, size);
     }
 };
+
 ```
