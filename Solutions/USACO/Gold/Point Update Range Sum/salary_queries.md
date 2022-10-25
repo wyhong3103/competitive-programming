@@ -1,3 +1,5 @@
+Coordinate compression + range sum query with seg tree.
+
 ```cpp
 #include <bits/stdc++.h>
 #define all(x) begin(x),end(x)
@@ -35,7 +37,7 @@ struct SegTree{
     ll merge(ll l, ll r){
         return l+r;
     }
- 
+    
     void buildHelper(vi& a, int x, int lx, int rx){
         if (rx-lx == 1){
             if (lx < sz(a)){
@@ -53,10 +55,11 @@ struct SegTree{
     void build(vi& a){
         buildHelper(a, 0, 0, size);
     }
+
  
-    void setHelper(int i, ll v, int x, int lx, int rx){
+    void setHelper(int i, int v, int x, int lx, int rx){
         if (rx-lx == 1){
-            val[x] += v; 
+            val[x] += v;
             return;
         }
  
@@ -69,16 +72,13 @@ struct SegTree{
         val[x] = merge(val[(x*2)+1], val[(x*2)+2]);
     }
  
-    void set(int i, ll v){
-        setHelper(i, v,  0, 0, size);
+    void set(int i, int v){
+        setHelper(i, v, 0, 0, size);
     }
  
     ll queryHelper(int l, int r, int x, int lx, int rx){
         if (lx >= r || rx <= l) return 0;
         if (lx >= l && rx <= r) return val[x];
-        if (rx-lx == 1){
-            return val[x];
-        }
  
         int m = (lx+rx)/2;
         return merge(queryHelper(l, r, (x*2)+1, lx, m), queryHelper(l, r, (x*2)+2,m, rx));
@@ -88,33 +88,58 @@ struct SegTree{
         return queryHelper(l, r, 0, 0, size);
     }
 };
- 
+
+
 void solve(){
     int n, m;
-    cin >> n >> m; 
- 
-    SegTree st;
-    st.init(n+2);
+    cin >> n >> m;
 
-    while (m--){
-        int t;
-        cin >> t;
+
+    vi a(n);
+    for(auto& i : a) cin >> i;
+
+    vi sorted = a;
+    sorted.pb(1e9+1);
+
+    vector<pair<int,pi>> queries;
+
+    for(int i{}; i < m; i++){
+        char c;
+        cin >> c;
+        int u, v;
+        cin >> u >> v;
+        int t = (c == '?' ? 2 : 1);
         if (t == 1){
-            int l, r, v;
-            cin >> l >> r >> v;
-            l++;r++;
-            st.set(l, v);
-            st.set(r, -v);
-        }else{
-            int at;
-            cin >> at;
-            //make it 1 indexed
-            at++;
-            //r exclusive, have to + 1 more
-            cout << st.query(0,at+1) << '\n';
+            sorted.pb(v);
         }
+        queries.pb({t, {u,v}});
+    }
+
+    sort(all(sorted));
+    sorted.resize(unique(all(sorted)) - sorted.begin());
+    
+    SegTree st;
+    st.init(sz(sorted));
+
+    for(auto& i : a){
+        int index = lower_bound(all(sorted), i) - sorted.begin();
+        st.set(index, 1);
     }
     
+    for(auto& i : queries){
+        if (i.fir == 1){
+            int index = lower_bound(all(sorted), a[i.sec.fir-1]) - sorted.begin();
+            st.set(index, -1);
+            index = lower_bound(all(sorted), i.sec.sec) - sorted.begin();
+            st.set(index, 1);
+            a[i.sec.fir-1] = i.sec.sec;
+        }else{
+            int l = lower_bound(all(sorted), i.sec.fir) - sorted.begin();
+            int r = lower_bound(all(sorted), i.sec.sec+1) - sorted.begin();
+            cout << st.query(l, r) << '\n';
+        }
+    }
+
 }
  
 int main(){

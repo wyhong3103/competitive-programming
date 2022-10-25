@@ -96,22 +96,21 @@ void solve(){
     SegTree st;
     st.init(n+2);
 
+    vll a(n);
+    for(auto& i : a) cin >> i;
+
     while (m--){
         int t;
         cin >> t;
         if (t == 1){
             int l, r, v;
             cin >> l >> r >> v;
-            l++;r++;
             st.set(l, v);
-            st.set(r, -v);
+            st.set(r+1, -v);
         }else{
             int at;
             cin >> at;
-            //make it 1 indexed
-            at++;
-            //r exclusive, have to + 1 more
-            cout << st.query(0,at+1) << '\n';
+            cout << a[at-1] + st.query(0,at+1) << '\n';
         }
     }
     
