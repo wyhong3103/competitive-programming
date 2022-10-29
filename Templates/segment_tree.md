@@ -83,18 +83,19 @@ struct SegTree{
     ll query(int l, int r){
         return queryHelper(l, r, 0, 0, size);
     }
-    
+    /*
     void printTree(){
-        int cnt = 1;
-        for(int i{}; i < size; i++){
-            cout << val[i] << ' ';
-            if (__lg(i) != cnt){
+        int cnt = -1;
+        for(int i{}; i < size*2; i++){
+            if (__lg(i+1) != cnt){
                 cout << '\n';
-                cnt = __lg(i);
+                cnt = __lg(i+1);
             }
+            cout << val[i] << ' ';
         }
     }
 
+    */
 };
 
 ```
