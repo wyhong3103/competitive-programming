@@ -34,6 +34,7 @@ void solve(){
     while(q--){
         int l, r;
         cin >> l >> r;
+        // min or (l, r]
         int w = (__lg(r-l));
         cout << (min(sparse[w][l], sparse[w][r-(1 << w)])) << '\n';
     }
