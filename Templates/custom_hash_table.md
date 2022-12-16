@@ -15,7 +15,7 @@ struct custom_hash {
     }
 };
 
-Now we can simply define our unordered_map or our gp_hash_table as follows:
+// Now we can simply define our unordered_map or our gp_hash_table as follows:
 
 unordered_map<long long, int, custom_hash> safe_map;
 gp_hash_table<long long, int, custom_hash> safe_hash_table;
