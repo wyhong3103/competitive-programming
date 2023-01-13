@@ -1,9 +1,9 @@
 ```cpp
 //1-indexed
 const int MAX = 1e5 +5;
+int a[MAX];
 
 struct FenwickTree{
-    int a[MAX];
     int fenwick_tree[MAX];
 
     //Sum of [1,k]
@@ -21,15 +21,6 @@ struct FenwickTree{
         while (k <= n){
             fenwick_tree[k] += x;
             k += k&-k;
-        }
-    }
-
-    void construct(){
-        for(int i{1}; i <= n; i++){
-            int k = i + (i&-i);
-            if (k < n){
-                fenwick_tree += a[i];
-            }
         }
     }
 }
