@@ -15,8 +15,10 @@ void build_pascal(){
         }
     }
 }
+```
 
-long long ncr(ll n, ll r){
+```cpp
+ll ncr(ll n, ll r){
     ll nom = 1;
     for(int i{n-r+1}; i <= n; i++) nom *= i;
 
@@ -27,5 +29,27 @@ long long ncr(ll n, ll r){
     }
     return nom / denom;
 }
+```
+```cpp
+const int MOD = ;
 
+ll modpow(ll n, ll p){
+    if (!p) return 1;
+    ll sq = modpow(n, p/2);
+    sq = (sq * sq) % MOD;
+    return (p % 2 ? n * sq : sq) % MOD;
+}
+ 
+ll ncr(ll n, ll r){
+    ll nom = 1;
+    for(int i{n-r+1}; i <= n; i++){
+        nom = (nom * i) % MOD;
+    }
+ 
+    ll denom = 1;
+    for(int i{1}; i <= r; i++){
+        denom = (denom * i) % MOD;
+    }
+    return (nom * modpow(denom, MOD-2)) % MOD;
+}
 ```
