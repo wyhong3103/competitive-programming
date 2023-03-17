@@ -1,5 +1,7 @@
 ```
 
+Segment Tree that allows Range Query Point Update
+
 Can be used on any associative operation on segment (GCD / Multiply/ Max / Min/ Bitwise Operation). Nodes in the segment tree can be customized to storing anything!
 
 To initialize - SegTree st; st.init(n);
@@ -86,7 +88,7 @@ struct SegTree{
     /*
     void printTree(){
         int cnt = -1;
-        for(int i{}; i < size*2; i++){
+        for(int i{}; i < size*2 - 1; i++){
             if (__lg(i+1) != cnt){
                 cout << '\n';
                 cnt = __lg(i+1);
