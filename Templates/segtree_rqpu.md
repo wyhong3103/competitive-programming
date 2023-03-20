@@ -12,6 +12,7 @@ To get val [l, r)- st.query(l, r)
 A better way to implement segment tree, is to use a merge function for merging segments rather than doing it manually under each func, and have a NEUTRAL_ELEMENT which returns something that wouldn't change the value of the segment.
 ```
 ```cpp
+// Be careful of unused value / garbage value
 // Segment tree for min
 struct SegTree{
     ll size;
@@ -86,7 +87,7 @@ struct SegTree{
         return queryHelper(l, r, 0, 0, size);
     }
     /*
-    void printTree(){
+    void print(){
         int cnt = -1;
         for(int i{}; i < size*2 - 1; i++){
             if (__lg(i+1) != cnt){

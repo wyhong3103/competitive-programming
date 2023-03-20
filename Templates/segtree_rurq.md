@@ -5,6 +5,7 @@ This segment tree allows Range Update Range Query, only if the set operation is 
 ```
 ```cpp
 
+// Be careful of garbage values!!!
 // Segment Tree that handles 2 type of query
 // set(v, l, r) = Multiply the element from the index l to r-1 by v
 // query(l, r) = Get the sum of the element from the index l to r-1

@@ -4,6 +4,7 @@ Segment Tree that allows Range Update Point Query with commutative / non-commuta
 ```
 ```cpp
 
+// Be careful of garbage value
 
 struct SegTree{
     ll size = 1;
@@ -70,7 +71,7 @@ struct SegTree{
         return queryHelper(i, 0, 0, size);
     }
 
-    void printTree(){
+    void print(){
         int cnt = -1;
         for(int i{}; i < size*2 - 1; i++){
             if (__lg(i+1) != cnt){
