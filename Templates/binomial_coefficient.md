@@ -12,7 +12,7 @@ void build_pascal(){
         for(int j{1}; j < MX-1; j++){
             C[i][j] = C[i-1][j-1] + C[i-1][j];
         }
-        C[i][MX-1] = 1;
+        C[i][i] = 1;
     }
 }
 ```

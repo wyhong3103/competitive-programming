@@ -33,7 +33,7 @@ struct SegTree{
         return min(a, b);
     }
 
-    void buildHelper(vi& a, int x, int lx, int rx){
+    void build(vi& a, int x, int lx, int rx){
         if (rx-lx == 1){
             if (lx < sz(a)){
                 val[x] = a[lx];
@@ -42,16 +42,16 @@ struct SegTree{
         }
  
         int m = (lx+rx)/2;
-        buildHelper(a, (x*2)+1, lx, m);
-        buildHelper(a, (x*2)+2, m, rx);
+        build(a, (x*2)+1, lx, m);
+        build(a, (x*2)+2, m, rx);
         val[x] = merge(val[(x*2)+1], val[(x*2)+2]);
     }
  
     void build(vi& a){
-        buildHelper(a, 0, 0, size);
+        build(a, 0, 0, size);
     }
  
-    void setHelper(int i, ll v, int x, int lx, int rx){
+    void set(int i, ll v, int x, int lx, int rx){
         if (rx-lx == 1){
             val[x] = v;
             return;
@@ -59,20 +59,20 @@ struct SegTree{
  
         int m = (lx+rx)/2;
         if (i < m){
-            setHelper(i, v, (x*2)+1, lx, m);
+            set(i, v, (x*2)+1, lx, m);
         }else{
-            setHelper(i, v, (x*2)+2, m, rx);
+            set(i, v, (x*2)+2, m, rx);
         }
         val[x] = merge(val[(x*2)+1], val[(x*2)+2]);
     }
  
     void set(int i, int v){
-        setHelper(i, v, 0, 0, size);
+        set(i, v, 0, 0, size);
     }
 
 
     // Make sure it runs in O(log N), eliminate the segment that is impossible, return the segment that is fully covered
-    ll queryHelper(int l, int r, int x, int lx, int rx){
+    ll query(int l, int r, int x, int lx, int rx){
         if (min(r, rx) - max(l, lx) <= 0){
             return NEUTRAL_ELEMENT;
         }
@@ -80,11 +80,11 @@ struct SegTree{
             return val[x];
         }
         int m = (lx + rx) / 2;
-        return merge(queryHelper(l, r, (x*2)+1, lx, m), queryHelper(l, r, (x*2)+2, m, rx));
+        return merge(query(l, r, (x*2)+1, lx, m), query(l, r, (x*2)+2, m, rx));
     }
  
     ll query(int l, int r){
-        return queryHelper(l, r, 0, 0, size);
+        return query(l, r, 0, 0, size);
     }
     /*
     void print(){
