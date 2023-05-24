@@ -1,4 +1,4 @@
-# Hola! Welcome to my CP Repository
+# Hola! Welcome to my Competitive Programming Repository
 
 Here contains my:
 - Solution code & Explanations for the problems I have solved from various online judges.
