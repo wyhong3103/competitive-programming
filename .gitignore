@@ -5,3 +5,4 @@ cp.exe
 /stress_test/
 path.py
 /__pycache__/
+.gitignore
