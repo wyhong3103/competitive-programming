@@ -30,6 +30,8 @@ Let's denote a group as a subsequence of elements that has to be a RBS.
 
 Based on the above, we can conclude that index i and index j belongs to the same group iff they are covered by the same subset of intervals. The idea is for each overlapping, either partial or full, we can break them down to different groups. And for each group we broke down, they will be further broken down if there is any extra interval that covers it. And the final answer is simply for product of number of RBS arrangements of each group. Any odd length interval make the answer 0. 
 
+To find the number of index belongs to groups, for every group. We can do XOR Hashing + Difference Array.
+
 ```
 ```cpp
 #include <bits/stdc++.h>
