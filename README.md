@@ -4,7 +4,7 @@ Here contains my:
 - Solution code & Explanations for the problems I have solved from various online judges.
 - Some template code that I collected and would normally use.
 
-Problems Count : 1168
+Problems Count : 1172
 
 # Templates
 *It is very unorganized right now!*
