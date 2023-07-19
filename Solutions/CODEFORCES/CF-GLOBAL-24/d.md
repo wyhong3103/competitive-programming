@@ -100,15 +100,12 @@ We can remove y in this scenario to have the blue peg touched.
   <img src="https://espresso.codeforces.com/5b74cdd3e4a2d6d32a8ed3fb4a09e11107c41291.png" />
 </p>
 
-Formula : 
-$n \cdot \left( \left( \sum_{i=1}^{ \lfloor \frac{n}{2} \rfloor - \left(1 - n \text{ mod } 2\right)} \sum_{j=0}^{i-1} \binom{i-1}{j} \cdot \left( n-3-j \right)! \cdot \left(i + \left( 1 - i \text{ mod } 2 \right) \right)\right) + \left(\left(1 - n \text{ mod } 2\right)  \cdot \left(n-2\right)! \right)\right)$
-
 <img src="./equation.svg" alt="equation">
 
 <details>
   <summary>LaTex Code</summary>
 
-`n \cdot \left(\left(\sum_{i=1}^{\lfloor \frac{n}{2} \rfloor - \left(1 - n \text{ mod } 2\right)} \sum_{j=0}^{i-1} \binom{i-1}{j} \cdot \left( n-3-j \right)! \cdot (i + \left( 1 - i \text{ mod } 2 \right))\right) + \left(\left(1 - n \text{ mod } 2\right)  \cdot \left(n-2\right)! \right)\right)`
+`n \cdot \left( \left( \sum_{i=1}^{ \lfloor \frac{n}{2} \rfloor - \left(1 - n \text{ mod } 2\right)} \sum_{j=0}^{i-1} \binom{i-1}{j} \cdot \left( n-3-j \right)! \cdot \left(i + \left( 1 - i \text{ mod } 2 \right) \right)\right) + \left(\left(1 - n \text{ mod } 2\right)  \cdot \left(n-2\right)! \right)\right)`
 
 </details>
 
